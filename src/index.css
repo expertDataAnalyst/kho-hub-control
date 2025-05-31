@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 250 250 250;
+    --background: 248 250 252;
     --foreground: 15 23 42;
 
     --card: 255 255 255;
@@ -14,11 +14,11 @@
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
 
-    --primary: 37 99 235;
-    --primary-foreground: 248 250 252;
+    --primary: 29 78 216;
+    --primary-foreground: 255 255 255;
 
     --secondary: 241 245 249;
-    --secondary-foreground: 30 41 59;
+    --secondary-foreground: 51 65 85;
 
     --muted: 248 250 252;
     --muted-foreground: 100 116 139;
@@ -31,18 +31,18 @@
 
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 37 99 235;
+    --ring: 29 78 216;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 51 65 85;
-    --sidebar-primary: 37 99 235;
-    --sidebar-primary-foreground: 248 250 252;
-    --sidebar-accent: 241 245 249;
-    --sidebar-accent-foreground: 30 41 59;
-    --sidebar-border: 226 232 240;
-    --sidebar-ring: 37 99 235;
+    --sidebar-background: 15 23 42;
+    --sidebar-foreground: 203 213 225;
+    --sidebar-primary: 59 130 246;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 30 41 59;
+    --sidebar-accent-foreground: 226 232 240;
+    --sidebar-border: 30 41 59;
+    --sidebar-ring: 59 130 246;
   }
 
   .dark {
@@ -64,7 +64,7 @@
     --muted: 30 41 59;
     --muted-foreground: 148 163 184;
 
-    --accent: 37 99 235;
+    --accent: 29 78 216;
     --accent-foreground: 226 232 240;
 
     --destructive: 220 38 38;
@@ -74,13 +74,13 @@
     --input: 30 41 59;
     --ring: 59 130 246;
 
-    --sidebar-background: 15 23 42;
+    --sidebar-background: 2 6 23;
     --sidebar-foreground: 148 163 184;
     --sidebar-primary: 59 130 246;
     --sidebar-primary-foreground: 15 23 42;
-    --sidebar-accent: 30 41 59;
+    --sidebar-accent: 15 23 42;
     --sidebar-accent-foreground: 226 232 240;
-    --sidebar-border: 30 41 59;
+    --sidebar-border: 15 23 42;
     --sidebar-ring: 59 130 246;
   }
 }
@@ -106,6 +106,22 @@
   }
   
   .stat-card {
-    @apply bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20;
+    @apply bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/50 hover:from-blue-100 hover:to-indigo-100;
+  }
+  
+  .primary-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600;
+  }
+  
+  .success-gradient {
+    @apply bg-gradient-to-r from-emerald-500 to-green-600;
+  }
+  
+  .warning-gradient {
+    @apply bg-gradient-to-r from-amber-500 to-orange-600;
+  }
+  
+  .danger-gradient {
+    @apply bg-gradient-to-r from-red-500 to-rose-600;
   }
 }
