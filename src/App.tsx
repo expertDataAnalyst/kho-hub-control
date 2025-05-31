@@ -11,6 +11,13 @@ import Materials from "./pages/Materials";
 import Warehouses from "./pages/Warehouses";
 import Inventory from "./pages/Inventory";
 import Confirmations from "./pages/Confirmations";
+import Users from "./pages/Users";
+import Drivers from "./pages/Drivers";
+import Sites from "./pages/Sites";
+import Machines from "./pages/Machines";
+import Reports from "./pages/Reports";
+import Payments from "./pages/Payments";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,14 +36,13 @@ const App = () => (
             <Route path="/warehouses" element={<Warehouses />} />
             <Route path="/inventory" element={<Inventory />} />
             <Route path="/confirmations" element={<Confirmations />} />
-            {/* Placeholder routes for other pages */}
-            <Route path="/users" element={<div className="p-8 text-center text-slate-600">Trang Người dùng đang phát triển</div>} />
-            <Route path="/drivers" element={<div className="p-8 text-center text-slate-600">Trang Tài xế đang phát triển</div>} />
-            <Route path="/sites" element={<div className="p-8 text-center text-slate-600">Trang Công trình đang phát triển</div>} />
-            <Route path="/machines" element={<div className="p-8 text-center text-slate-600">Trang Thiết bị đang phát triển</div>} />
-            <Route path="/reports" element={<div className="p-8 text-center text-slate-600">Trang Báo cáo đang phát triển</div>} />
-            <Route path="/payments" element={<div className="p-8 text-center text-slate-600">Trang Thanh toán đang phát triển</div>} />
-            <Route path="/settings" element={<div className="p-8 text-center text-slate-600">Trang Cài đặt đang phát triển</div>} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/drivers" element={<Drivers />} />
+            <Route path="/sites" element={<Sites />} />
+            <Route path="/machines" element={<Machines />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/payments" element={<Payments />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
