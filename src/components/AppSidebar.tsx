@@ -82,7 +82,8 @@ const menuItems = [
 ];
 
 export function AppSidebar() {
-  const { collapsed } = useSidebar();
+  const { state } = useSidebar();
+  const isCollapsed = state === "collapsed";
   const location = useLocation();
   const currentPath = location.pathname;
   const [openGroups, setOpenGroups] = useState<string[]>(["Quản lý kho", "Xuất nhập kho"]);
@@ -102,9 +103,9 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className={collapsed ? "w-14" : "w-64"} collapsible>
+    <Sidebar className={isCollapsed ? "w-14" : "w-64"}>
       <div className="p-4 border-b border-sidebar-border">
-        {!collapsed && (
+        {!isCollapsed && (
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <Warehouse className="w-5 h-5 text-primary-foreground" />
@@ -115,7 +116,7 @@ export function AppSidebar() {
             </div>
           </div>
         )}
-        {collapsed && (
+        {isCollapsed && (
           <SidebarTrigger className="w-full" />
         )}
       </div>
@@ -133,9 +134,9 @@ export function AppSidebar() {
                     <SidebarMenuButton className="w-full justify-between">
                       <div className="flex items-center gap-3">
                         <item.icon className="h-4 w-4" />
-                        {!collapsed && <span>{item.title}</span>}
+                        {!isCollapsed && <span>{item.title}</span>}
                       </div>
-                      {!collapsed && (
+                      {!isCollapsed && (
                         openGroups.includes(item.title) ? 
                           <ChevronDown className="h-4 w-4" /> : 
                           <ChevronRight className="h-4 w-4" />
@@ -143,7 +144,7 @@ export function AppSidebar() {
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   
-                  {!collapsed && (
+                  {!isCollapsed && (
                     <CollapsibleContent className="ml-4 mt-1 space-y-1">
                       {item.subItems.map((subItem) => (
                         <SidebarMenuButton key={subItem.url} asChild>
@@ -167,7 +168,7 @@ export function AppSidebar() {
                     className={getNavCls}
                   >
                     <item.icon className="h-4 w-4" />
-                    {!collapsed && <span>{item.title}</span>}
+                    {!isCollapsed && <span>{item.title}</span>}
                   </NavLink>
                 </SidebarMenuButton>
               )}

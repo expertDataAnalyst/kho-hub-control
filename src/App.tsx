@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import DeliveryOrders from "./pages/DeliveryOrders";
 import Materials from "./pages/Materials";
 import Warehouses from "./pages/Warehouses";
+import Inventory from "./pages/Inventory";
+import Confirmations from "./pages/Confirmations";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,9 +27,9 @@ const App = () => (
             <Route path="/delivery-orders" element={<DeliveryOrders />} />
             <Route path="/materials" element={<Materials />} />
             <Route path="/warehouses" element={<Warehouses />} />
+            <Route path="/inventory" element={<Inventory />} />
+            <Route path="/confirmations" element={<Confirmations />} />
             {/* Placeholder routes for other pages */}
-            <Route path="/inventory" element={<div className="p-8 text-center text-slate-600">Trang Tồn kho đang phát triển</div>} />
-            <Route path="/confirmations" element={<div className="p-8 text-center text-slate-600">Trang Xác nhận đơn đang phát triển</div>} />
             <Route path="/users" element={<div className="p-8 text-center text-slate-600">Trang Người dùng đang phát triển</div>} />
             <Route path="/drivers" element={<div className="p-8 text-center text-slate-600">Trang Tài xế đang phát triển</div>} />
             <Route path="/sites" element={<div className="p-8 text-center text-slate-600">Trang Công trình đang phát triển</div>} />

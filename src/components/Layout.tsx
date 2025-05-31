@@ -13,7 +13,7 @@ export function Layout({ children }: LayoutProps) {
   const isMobile = useIsMobile();
 
   return (
-    <SidebarProvider collapsedWidth={isMobile ? 0 : 56}>
+    <SidebarProvider>
       <div className="min-h-screen flex w-full bg-slate-50">
         <AppSidebar />
         
