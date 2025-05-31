@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 248 250 252;
+    --background: 255 255 255;
     --foreground: 15 23 42;
 
     --card: 255 255 255;
@@ -14,7 +14,7 @@
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
 
-    --primary: 29 78 216;
+    --primary: 59 130 246;
     --primary-foreground: 255 255 255;
 
     --secondary: 241 245 249;
@@ -24,16 +24,55 @@
     --muted-foreground: 100 116 139;
 
     --accent: 59 130 246;
-    --accent-foreground: 15 23 42;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 59 130 246;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 255 255 255;
+    --sidebar-foreground: 51 65 85;
+    --sidebar-primary: 59 130 246;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 241 245 249;
+    --sidebar-accent-foreground: 51 65 85;
+    --sidebar-border: 226 232 240;
+    --sidebar-ring: 59 130 246;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+
+    --primary: 59 130 246;
+    --primary-foreground: 15 23 42;
+
+    --secondary: 51 65 85;
+    --secondary-foreground: 248 250 252;
+
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+
+    --accent: 59 130 246;
+    --accent-foreground: 248 250 252;
 
     --destructive: 239 68 68;
     --destructive-foreground: 248 250 252;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 29 78 216;
-
-    --radius: 0.75rem;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 59 130 246;
 
     --sidebar-background: 15 23 42;
     --sidebar-foreground: 203 213 225;
@@ -42,45 +81,6 @@
     --sidebar-accent: 30 41 59;
     --sidebar-accent-foreground: 226 232 240;
     --sidebar-border: 30 41 59;
-    --sidebar-ring: 59 130 246;
-  }
-
-  .dark {
-    --background: 2 6 23;
-    --foreground: 226 232 240;
-
-    --card: 15 23 42;
-    --card-foreground: 226 232 240;
-
-    --popover: 15 23 42;
-    --popover-foreground: 226 232 240;
-
-    --primary: 59 130 246;
-    --primary-foreground: 15 23 42;
-
-    --secondary: 30 41 59;
-    --secondary-foreground: 226 232 240;
-
-    --muted: 30 41 59;
-    --muted-foreground: 148 163 184;
-
-    --accent: 29 78 216;
-    --accent-foreground: 226 232 240;
-
-    --destructive: 220 38 38;
-    --destructive-foreground: 248 250 252;
-
-    --border: 30 41 59;
-    --input: 30 41 59;
-    --ring: 59 130 246;
-
-    --sidebar-background: 2 6 23;
-    --sidebar-foreground: 148 163 184;
-    --sidebar-primary: 59 130 246;
-    --sidebar-primary-foreground: 15 23 42;
-    --sidebar-accent: 15 23 42;
-    --sidebar-accent-foreground: 226 232 240;
-    --sidebar-border: 15 23 42;
     --sidebar-ring: 59 130 246;
   }
 }
@@ -106,22 +106,22 @@
   }
   
   .stat-card {
-    @apply bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/50 hover:from-blue-100 hover:to-indigo-100;
+    @apply bg-white border border-gray-200 hover:border-blue-300 hover:shadow-md;
   }
   
-  .primary-gradient {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600;
+  .notification-enter {
+    @apply transform translate-x-full opacity-0;
   }
   
-  .success-gradient {
-    @apply bg-gradient-to-r from-emerald-500 to-green-600;
+  .notification-enter-active {
+    @apply transform translate-x-0 opacity-100 transition-all duration-300;
   }
   
-  .warning-gradient {
-    @apply bg-gradient-to-r from-amber-500 to-orange-600;
+  .notification-exit {
+    @apply transform translate-x-0 opacity-100;
   }
   
-  .danger-gradient {
-    @apply bg-gradient-to-r from-red-500 to-rose-600;
+  .notification-exit-active {
+    @apply transform translate-x-full opacity-0 transition-all duration-300;
   }
 }

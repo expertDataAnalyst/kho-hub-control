@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "@/components/Layout";
+import { NotificationProvider } from "@/contexts/NotificationContext";
 import Index from "./pages/Index";
 import DeliveryOrders from "./pages/DeliveryOrders";
 import Materials from "./pages/Materials";
@@ -25,28 +26,30 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/delivery-orders" element={<DeliveryOrders />} />
-            <Route path="/materials" element={<Materials />} />
-            <Route path="/warehouses" element={<Warehouses />} />
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/confirmations" element={<Confirmations />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/drivers" element={<Drivers />} />
-            <Route path="/sites" element={<Sites />} />
-            <Route path="/machines" element={<Machines />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/payments" element={<Payments />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+      <NotificationProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/delivery-orders" element={<DeliveryOrders />} />
+              <Route path="/materials" element={<Materials />} />
+              <Route path="/warehouses" element={<Warehouses />} />
+              <Route path="/inventory" element={<Inventory />} />
+              <Route path="/confirmations" element={<Confirmations />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/drivers" element={<Drivers />} />
+              <Route path="/sites" element={<Sites />} />
+              <Route path="/machines" element={<Machines />} />
+              <Route path="/reports" element={<Reports />} />
+              <Route path="/payments" element={<Payments />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </NotificationProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
