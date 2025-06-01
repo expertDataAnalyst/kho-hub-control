@@ -91,8 +91,8 @@ export function AppSidebar() {
   const isActive = (path: string) => currentPath === path;
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
     isActive 
-      ? "bg-primary text-primary-foreground font-medium shadow-sm" 
-      : "hover:bg-accent hover:text-accent-foreground transition-colors";
+      ? "bg-red-600 text-white font-medium shadow-sm" 
+      : "hover:bg-red-50 hover:text-red-700 transition-colors";
 
   const toggleGroup = (title: string) => {
     setOpenGroups(prev => 
@@ -107,8 +107,8 @@ export function AppSidebar() {
       <div className="p-4 border-b border-sidebar-border">
         {!isCollapsed && (
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Warehouse className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+              <Warehouse className="w-5 h-5 text-white" />
             </div>
             <div>
               <h2 className="font-semibold text-sidebar-foreground">QuanLyKho</h2>
@@ -131,7 +131,7 @@ export function AppSidebar() {
                   onOpenChange={() => toggleGroup(item.title)}
                 >
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="w-full justify-between">
+                    <SidebarMenuButton className="w-full justify-between hover:bg-red-50 hover:text-red-700">
                       <div className="flex items-center gap-3">
                         <item.icon className="h-4 w-4" />
                         {!isCollapsed && <span>{item.title}</span>}

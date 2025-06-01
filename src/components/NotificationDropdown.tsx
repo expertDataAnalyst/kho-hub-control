@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuHeader,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
@@ -66,7 +65,7 @@ export function NotificationDropdown() {
       </DropdownMenuTrigger>
       
       <DropdownMenuContent className="w-96 max-h-96 overflow-y-auto bg-white border shadow-lg" align="end">
-        <DropdownMenuHeader className="flex items-center justify-between p-4 border-b">
+        <div className="flex items-center justify-between p-4 border-b">
           <DropdownMenuLabel className="text-lg font-semibold">Thông báo</DropdownMenuLabel>
           <div className="flex gap-2">
             {unreadCount > 0 && (
@@ -74,7 +73,7 @@ export function NotificationDropdown() {
                 variant="ghost" 
                 size="sm" 
                 onClick={markAllAsRead}
-                className="text-blue-600 hover:text-blue-800"
+                className="text-red-600 hover:text-red-800"
               >
                 <Check className="w-4 h-4 mr-1" />
                 Đánh dấu đã đọc
@@ -91,7 +90,7 @@ export function NotificationDropdown() {
               </Button>
             )}
           </div>
-        </DropdownMenuHeader>
+        </div>
 
         <div className="max-h-80 overflow-y-auto">
           {notifications.length === 0 ? (
@@ -159,7 +158,7 @@ export function NotificationDropdown() {
                     </div>
                     
                     {!notification.read && (
-                      <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 mt-2"></div>
+                      <div className="w-2 h-2 bg-red-500 rounded-full flex-shrink-0 mt-2"></div>
                     )}
                   </div>
                 </div>
