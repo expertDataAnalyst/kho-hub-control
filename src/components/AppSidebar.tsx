@@ -92,7 +92,7 @@ export function AppSidebar() {
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
     isActive 
       ? "bg-red-600 text-white font-medium shadow-sm" 
-      : "hover:bg-red-50 hover:text-red-700 transition-colors";
+      : "hover:bg-red-100 hover:text-red-700 transition-colors";
 
   const toggleGroup = (title: string) => {
     setOpenGroups(prev => 
@@ -103,25 +103,25 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className={isCollapsed ? "w-14" : "w-64"}>
-      <div className="p-4 border-b border-sidebar-border">
+    <Sidebar className={`${isCollapsed ? "w-14" : "w-64"} bg-red-600 border-r border-red-700`}>
+      <div className="p-4 border-b border-red-700">
         {!isCollapsed && (
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-              <Warehouse className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+              <Warehouse className="w-5 h-5 text-red-600" />
             </div>
             <div>
-              <h2 className="font-semibold text-sidebar-foreground">QuanLyKho</h2>
-              <p className="text-xs text-sidebar-foreground/60">v1.0.0</p>
+              <h2 className="font-semibold text-white">QuanLyKho</h2>
+              <p className="text-xs text-red-200">v1.0.0</p>
             </div>
           </div>
         )}
         {isCollapsed && (
-          <SidebarTrigger className="w-full" />
+          <SidebarTrigger className="w-full text-white hover:bg-red-700" />
         )}
       </div>
 
-      <SidebarContent className="p-2">
+      <SidebarContent className="p-2 bg-red-600">
         <SidebarMenu>
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.title}>
@@ -131,7 +131,7 @@ export function AppSidebar() {
                   onOpenChange={() => toggleGroup(item.title)}
                 >
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="w-full justify-between hover:bg-red-50 hover:text-red-700">
+                    <SidebarMenuButton className="w-full justify-between text-white hover:bg-red-700 hover:text-white">
                       <div className="flex items-center gap-3">
                         <item.icon className="h-4 w-4" />
                         {!isCollapsed && <span>{item.title}</span>}
@@ -150,7 +150,11 @@ export function AppSidebar() {
                         <SidebarMenuButton key={subItem.url} asChild>
                           <NavLink
                             to={subItem.url}
-                            className={getNavCls}
+                            className={({ isActive }) => 
+                              isActive 
+                                ? "bg-white text-red-600 font-medium shadow-sm flex items-center gap-3 px-3 py-2 rounded-md" 
+                                : "text-red-100 hover:bg-red-700 hover:text-white flex items-center gap-3 px-3 py-2 rounded-md transition-colors"
+                            }
                           >
                             <subItem.icon className="h-4 w-4" />
                             <span>{subItem.title}</span>
@@ -165,7 +169,11 @@ export function AppSidebar() {
                   <NavLink
                     to={item.url!}
                     end
-                    className={getNavCls}
+                    className={({ isActive }) => 
+                      isActive 
+                        ? "bg-white text-red-600 font-medium shadow-sm flex items-center gap-3 px-3 py-2 rounded-md" 
+                        : "text-white hover:bg-red-700 hover:text-white flex items-center gap-3 px-3 py-2 rounded-md transition-colors"
+                    }
                   >
                     <item.icon className="h-4 w-4" />
                     {!isCollapsed && <span>{item.title}</span>}
