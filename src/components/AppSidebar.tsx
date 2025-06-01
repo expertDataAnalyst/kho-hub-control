@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import {
@@ -89,10 +88,6 @@ export function AppSidebar() {
   const [openGroups, setOpenGroups] = useState<string[]>(["Quản lý kho", "Xuất nhập kho"]);
 
   const isActive = (path: string) => currentPath === path;
-  const getNavCls = ({ isActive }: { isActive: boolean }) =>
-    isActive 
-      ? "bg-red-600 text-white font-medium shadow-sm" 
-      : "hover:bg-red-100 hover:text-red-700 transition-colors";
 
   const toggleGroup = (title: string) => {
     setOpenGroups(prev => 
@@ -103,26 +98,26 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className={`${isCollapsed ? "w-14" : "w-64"} bg-red-600 border-r border-red-700`}>
-      <div className="p-4 border-b border-red-700">
+    <Sidebar className={`${isCollapsed ? "w-14" : "w-64"} bg-slate-800 border-r border-slate-700`}>
+      <div className="p-4 border-b border-slate-700">
         {!isCollapsed && (
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-              <Warehouse className="w-5 h-5 text-red-600" />
+            <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+              <Warehouse className="w-5 h-5 text-white" />
             </div>
             <div>
               <h2 className="font-semibold text-white">QuanLyKho</h2>
-              <p className="text-xs text-red-200">v1.0.0</p>
+              <p className="text-xs text-slate-400">v1.0.0</p>
             </div>
           </div>
         )}
         {isCollapsed && (
-          <SidebarTrigger className="w-full text-white hover:bg-red-700" />
+          <SidebarTrigger className="w-full text-slate-300 hover:bg-slate-700 hover:text-white" />
         )}
       </div>
 
-      <SidebarContent className="p-2 bg-red-600">
-        <SidebarMenu>
+      <SidebarContent className="p-2 bg-slate-800">
+        <SidebarMenu className="space-y-1">
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.title}>
               {item.subItems ? (
@@ -131,10 +126,10 @@ export function AppSidebar() {
                   onOpenChange={() => toggleGroup(item.title)}
                 >
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="w-full justify-between text-white hover:bg-red-700 hover:text-white">
+                    <SidebarMenuButton className="w-full justify-between text-slate-300 hover:bg-slate-700 hover:text-white transition-all duration-200 rounded-lg">
                       <div className="flex items-center gap-3">
                         <item.icon className="h-4 w-4" />
-                        {!isCollapsed && <span>{item.title}</span>}
+                        {!isCollapsed && <span className="font-medium">{item.title}</span>}
                       </div>
                       {!isCollapsed && (
                         openGroups.includes(item.title) ? 
@@ -152,8 +147,8 @@ export function AppSidebar() {
                             to={subItem.url}
                             className={({ isActive }) => 
                               isActive 
-                                ? "bg-white text-red-600 font-medium shadow-sm flex items-center gap-3 px-3 py-2 rounded-md" 
-                                : "text-red-100 hover:bg-red-700 hover:text-white flex items-center gap-3 px-3 py-2 rounded-md transition-colors"
+                                ? "bg-red-600 text-white font-medium shadow-sm flex items-center gap-3 px-3 py-2 rounded-lg border border-red-500" 
+                                : "text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:border hover:border-slate-600"
                             }
                           >
                             <subItem.icon className="h-4 w-4" />
@@ -171,12 +166,12 @@ export function AppSidebar() {
                     end
                     className={({ isActive }) => 
                       isActive 
-                        ? "bg-white text-red-600 font-medium shadow-sm flex items-center gap-3 px-3 py-2 rounded-md" 
-                        : "text-white hover:bg-red-700 hover:text-white flex items-center gap-3 px-3 py-2 rounded-md transition-colors"
+                        ? "bg-red-600 text-white font-medium shadow-sm flex items-center gap-3 px-3 py-2 rounded-lg border border-red-500" 
+                        : "text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:border hover:border-slate-600"
                     }
                   >
                     <item.icon className="h-4 w-4" />
-                    {!isCollapsed && <span>{item.title}</span>}
+                    {!isCollapsed && <span className="font-medium">{item.title}</span>}
                   </NavLink>
                 </SidebarMenuButton>
               )}
