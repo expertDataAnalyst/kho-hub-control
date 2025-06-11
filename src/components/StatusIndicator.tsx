@@ -1,4 +1,3 @@
-
 import { cn } from '@/lib/utils';
 
 interface StatusIndicatorProps {
@@ -25,10 +24,10 @@ export function StatusIndicator({ status, label, size = 'md', showIcon = true }:
       label: label || 'Không hoạt động'
     },
     pending: {
-      color: 'bg-yellow-500',
-      textColor: 'text-yellow-700',
-      bgColor: 'bg-yellow-50',
-      borderColor: 'border-yellow-200',
+      color: 'bg-blue-500',
+      textColor: 'text-blue-800',
+      bgColor: 'bg-blue-50',
+      borderColor: 'border-blue-200',
       label: label || 'Đang chờ'
     },
     error: {
@@ -46,10 +45,10 @@ export function StatusIndicator({ status, label, size = 'md', showIcon = true }:
       label: label || 'Thành công'
     },
     warning: {
-      color: 'bg-orange-500',
-      textColor: 'text-orange-700',
-      bgColor: 'bg-orange-50',
-      borderColor: 'border-orange-200',
+      color: 'bg-amber-600',
+      textColor: 'text-amber-800',
+      bgColor: 'bg-amber-50',
+      borderColor: 'border-amber-200',
       label: label || 'Cảnh báo'
     }
   };
